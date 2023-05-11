@@ -1,3 +1,8 @@
 .App {
+   height: 200vh;
    text-align: center;
+   background-image: url(../src/components/img/fondo.jpg);
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
 }

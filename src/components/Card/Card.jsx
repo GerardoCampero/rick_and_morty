@@ -10,7 +10,7 @@ export default function Card({id, onClose, name, status, species, gender, origin
             <h2 className={style.idTexto}>{id}</h2>
          </div>
          <button className={style.boton} onClick={() => onClose(id)}>X</button>
-         <Link to={'/detail/:id'}>
+         <Link to={`/detail/${id}`}>
             <h2 className={style.nombre}>{name}</h2>
          </Link>
          <div className={style.divTexto}>

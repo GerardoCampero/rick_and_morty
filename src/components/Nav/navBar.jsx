@@ -6,7 +6,7 @@ export default function Nav (props) {
     return (
         <nav className={style.contenedor}>
             <div>
-                <Link to={'/'}>
+                <Link to={'/cards'}>
                     <span>Home</span>
                 </Link>
                 <Link to={'/about'}>

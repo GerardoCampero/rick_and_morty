@@ -12,6 +12,9 @@ export default function Nav (props) {
                 <Link to={'/about'}>
                     <span>About</span>
                 </Link>
+                <Link to={'/favorite'}>
+                    <span>Favorite</span>
+                </Link>
             </div>
             <SearchBar onSearch = {props.onSearch} />
         </nav>

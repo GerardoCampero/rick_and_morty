@@ -1,14 +1,18 @@
+.contenedor{
+  display: flex;
+}
 
 .input{
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    height: 1.65rem;
+    margin-top: 0.45rem;
+    margin-bottom: 0.4em;
     border: 3px solid black;
 }
 
 .button {
     margin-top: 0.4em;
     margin-bottom: 0.4em;
-    margin-right: 0.4em;
+    margin-right: 0.5em;
     background: #dde177;
     font-weight: 900;
     font-size: 18px;
@@ -29,3 +33,4 @@
     
     
   }
+

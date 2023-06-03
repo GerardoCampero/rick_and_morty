@@ -21,7 +21,14 @@
 
 
 .favBtn{
+    display: flex;
+    justify-content: center;
     z-index: 2;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: 93%;
+    top: 60%;
 }
 
 
@@ -33,7 +40,7 @@
     position: relative;
     z-index: 2;
     left: 96%;
-    top: -2%;
+    top: -8%;
     background-color: gainsboro;
     cursor: url(../img/otroBoton.png), auto;
 }
@@ -46,7 +53,7 @@
     font-size: medium;
     position: relative;
     z-index: 1;
-    top: 14em;
+    top: 13em;
     left: 2%;
     text-decoration: none;
    

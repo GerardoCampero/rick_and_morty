@@ -5,3 +5,18 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.filter {
+    z-index: 5;
+    position: fixed;
+    top: 3rem;
+    left: 0rem;
+}
+
+
+.order {
+    z-index: 5;
+    position: fixed;
+    top: 4rem;
+    left: 0rem;
+}

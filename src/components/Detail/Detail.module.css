@@ -1,14 +1,42 @@
-.p{
-    margin: 0;
-    color: white;
+.contenedor1 {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
+
+.p{
+    margin: 1rem;
+    color: white;
+    margin-left: 26rem;
+}
+
+
 
 .contenedor{
     margin: 0;
-    height: 50rem;
-    width: 50rem;
+    height: 20rem;
+    width: 40rem;
     border: 1px solid rgb(255, 255, 255);
     top: 10%;
     position: absolute;
     background-color: rgba(168, 58, 131, 0.6);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contenedorText{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+
+.img {
+    margin: 2rem;
+    height: 18rem;
+    width: 21rem;
+    position: absolute;
 }

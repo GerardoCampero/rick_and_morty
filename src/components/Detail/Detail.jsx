@@ -2,6 +2,9 @@ import style from './Detail.module.css'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState} from 'react'
 import axios from 'axios'
+
+
+
 export default function Detail() {
     const {id} = useParams();
     const [character, setCharacter] = useState([]);
@@ -17,9 +20,12 @@ export default function Detail() {
      }, [id]);
 
     return(
+        <div className={style.contenedor1}>
         <div className={style.contenedor}>
+        
         { character.name ? (
             <>
+            <div className={style.contenedorText}>         
                 <p className={style.p}>
                     {character.name}
                 </p>
@@ -35,6 +41,7 @@ export default function Detail() {
                 <p className={style.p}>
                     {character.origin?.name}
                 </p>
+            </div>   
                 <img className={style.img} src={character.image} alt={character.name} />
             </>
             )
@@ -44,6 +51,7 @@ export default function Detail() {
             )  
 
         }
+        </div>
         </div>
     ) 
 }

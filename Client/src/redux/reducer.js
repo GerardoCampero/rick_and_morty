@@ -8,14 +8,14 @@ const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_FAVORITE: {
             return {...state, 
-                allCharacters: [...state.allCharacters, action.payload],
-                myFavorite: [...state.allCharacters, action.payload]
+                allCharacters: action.payload,
+                myFavorite: action.payload
             };
         }
         case REMOVE_FAVORITE: {
             return {...state, 
-                myFavorite: state.allCharacters.filter((char) => char.id !== action.payload),
-                allCharacters: state.allCharacters.filter((char) => char.id !== action.payload)
+                myFavorite: action.payload,
+                allCharacters: action.payload
             };
         }
         case FILTER_CARDS: {

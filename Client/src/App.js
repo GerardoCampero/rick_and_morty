@@ -7,6 +7,7 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import { useEffect, useState } from 'react';
 import Favorites from './components/Favorites/Favorites';
+import axios from "axios";
 
 
 
@@ -16,17 +17,16 @@ function App() {
    const { pathname } = useLocation();
    const [characters, setCharacter] = useState([]);
    const [access, setAccess] = useState(false);
-   const EMAIL = 'gera@mail.com';
-   const PASSWORD ='pass1234';
    const navigate = useNavigate();
 
    function login(userData) {
-      if(userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/cards');
-         
-      }
-      else alert('Usuario o contraseña incorrecto')
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      });
    }
    
    useEffect(()=> {

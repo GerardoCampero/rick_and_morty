@@ -6,7 +6,7 @@ const login = (req, res) => {
 
     return userFound
     ? res.status(200).json({ access: true })
-    : res.status(200).json({ access: false })
+    : res.status(401).json({ access: false, message: 'Datos incorrectos' })
 };
 
 

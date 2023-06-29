@@ -19,32 +19,57 @@ function App() {
    const [access, setAccess] = useState(false);
    const navigate = useNavigate();
 
-   function login(userData) {
+   async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      
+      try {
+         const { data } = await axios(URL + `?email=${email}&password=${password}`);
          const { access } = data;
          setAccess(access);
-         access && navigate('/home');
-      });
+         access && navigate('/cards');
+      } catch ({ response }) {
+         const { data } = response;
+         alert(data.message);
+      }
+      
+      
+      // axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      //    const { access } = data;
+      //    setAccess(access);
+      //    access && navigate('/cards');
+      // });
    }
    
    useEffect(()=> {
       !access && navigate('/');
    }, [access]);
    
-   const onSearch = (id) => {
-      fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-         if(data.name && !characters.find((char) => char.id === data.id )) {
-            setCharacter((oldCharacters) => [...oldCharacters, data]);
-         }
-         else{
-            window.alert('¡No hay personajes con este ID o está repetido!');
-         }
+   const onSearch = async (id) => {
+
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+
+            if(data.name && !characters.find((char) => char.id === data.id )) {
+                setCharacter((oldCharacters) => [...oldCharacters, data]);
+             }
+             else{
+                window.alert(`La carta ${id} ya se encuentra seleccionada`);
+             }
+      } catch (error) {
+         alert(error.response.data);
       }
-      );
+      
+      // .then((res) => res.json())
+      // .then((data) => {
+      //    if(data.name && !characters.find((char) => char.id === data.id )) {
+      //       setCharacter((oldCharacters) => [...oldCharacters, data]);
+      //    }
+      //    else{
+      //       window.alert('¡No hay personajes con este ID o está repetido!');
+      //    }
+      // }
+      // );
    };
    const onClose = (id) => {
       setCharacter(characters.filter((char) => char.id !== id)) ;

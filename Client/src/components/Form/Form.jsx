@@ -28,7 +28,7 @@ export default function Form({login}) {
                 </label>
                 {errors.email && (<p className={style.danger}>{errors.email}</p>)}
                 <label htmlFor="password">
-                    Password(pass1234):
+                    Password(Pass1234):
                     <input type= 'password' id="password" value={userData.password} name="password" onChange={handleChange} className={errors.password && style.warning} />
                 </label>
                 {errors.password && (<p className={style.danger}>{errors.password}</p>)}

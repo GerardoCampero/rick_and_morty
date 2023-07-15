@@ -3,6 +3,9 @@ const server = express();
 const PORT = 3001;
 const router = require('./routes/index');
 const morgan = require('morgan');
+require('dotenv').config();
+const { conn } = require('./DB_connection');
+
 
 server.use(morgan('dev'));
 
@@ -25,7 +28,8 @@ server.use((req, res, next) => {
  server.use('/rickandmorty', router);
 
 
-server.listen(PORT, () => {
+server.listen(PORT, async () => {
+   await conn.sync({force:false})
    console.log('Server raised in port: ' + PORT);
 });
 
